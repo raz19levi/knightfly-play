@@ -77,6 +77,10 @@
       // The engine must not resize the canvas itself; we own that, and we set
       // it from the visual viewport so iOS Safari's chrome is accounted for.
       matchWebGLToCanvasSize: false,
+      // Without this the save lives only in memory: persistentDataPath is an
+      // IndexedDB mount that Unity copies back only when asked, so every
+      // reload started the player from nothing.
+      autoSyncPersistentDataPath: true,
     };
 
     // One place decides the size. Called before load, on every resize, and on
